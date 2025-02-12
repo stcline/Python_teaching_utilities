@@ -1,9 +1,4 @@
 File 1,File 2,Similarity (%)
-compare_scripts.py,file1.py,2.39
-compare_scripts.py,file2.py,1.89
-compare_scripts.py,file3.py,0.99
-compare_scripts.py,file4.py,2.15
-compare_scripts.py,file5.py,1.37
 file1.py,file2.py,54.88
 file1.py,file3.py,63.1
 file1.py,file4.py,48.51

@@ -44,7 +44,7 @@ def compare_multiple_files(directory, output_csv):
         writer.writerows(results)
 
 if __name__ == "__main__":
-    directory = "D:\Documents\Python Scripts\Python_teaching_utilities\Comparing_Scripts"
+    directory = "D:\Documents\Python Scripts\Python_teaching_utilities\Comparing_Scripts\compares"
     output_csv = "similarities_tokenized.csv"
     compare_multiple_files(directory, output_csv)
     print(f"Comparison completed. Results saved to {output_csv}.")
