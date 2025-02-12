@@ -38,7 +38,7 @@ def compare_multiple_files(directory, output_csv):
 
 if __name__ == "__main__":
     # Specify the directory containing Python files and the output CSV file
-    directory = "D:\Documents\Python Scripts\Python_teaching_utilities\compares"  # Files to be compared
+    directory = "D:\Documents\Python Scripts\Python_teaching_utilities\Comparing_Scripts"  # Files to be compared
     output_csv = "similarities.csv"
     
     # Run the comparison

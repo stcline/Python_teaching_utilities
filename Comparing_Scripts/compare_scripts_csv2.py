@@ -5,27 +5,20 @@ import tokenize
 import io
 
 def tokenize_file(filename):
-    """Tokenize a Python file and return a list of significant tokens."""
+    """Tokenize a Python file and return a list of tokens."""
     with open(filename, 'r') as f:
         source_code = f.read()
     tokens = []
     g = tokenize.tokenize(io.BytesIO(source_code.encode('utf-8')).readline)
     for toknum, tokval, _, _, _ in g:
-        if toknum not in (tokenize.COMMENT, tokenize.NL, tokenize.INDENT, tokenize.DEDENT, tokenize.NEWLINE, tokenize.OP, tokenize.STRING):
-            if tokval not in ('(', ')', '[', ']', '{', '}', ':', ',', ';', '.', '=', '+', '-', '*', '/', '%', '**', '//', '<', '>', '<=', '>=', '==', '!=', 'and', 'or', 'not', 'in', 'is'):
-                tokens.append(tokval)
+        if toknum not in (tokenize.COMMENT, tokenize.NL, tokenize.INDENT, tokenize.DEDENT, tokenize.NEWLINE):
+            tokens.append(tokval)
     return tokens
 
 def compare_token_lists(tokens1, tokens2):
-    """Compare two lists of tokens and calculate their similarity percentage based on Jaccard index."""
-    set1 = set(tokens1)
-    set2 = set(tokens2)
-    intersection = len(set1.intersection(set2))
-    union = len(set1.union(set2))
-    if union == 0:
-        return 0.0  # Avoid division by zero
-    similarity = (intersection / union) * 100
-    return round(similarity, 2)
+    """Compare two lists of tokens and calculate their similarity percentage."""
+    similarity = difflib.SequenceMatcher(None, tokens1, tokens2).ratio()
+    return round(similarity * 100, 2)
 
 def compare_files(file1, file2):
     """Tokenize and compare two files, returning a similarity percentage."""
@@ -51,7 +44,7 @@ def compare_multiple_files(directory, output_csv):
         writer.writerows(results)
 
 if __name__ == "__main__":
-    directory = "D:\Documents\Python Scripts\Python_teaching_utilities\compares"
-    output_csv = "similarities_tokenized_v2.csv"
+    directory = "D:\Documents\Python Scripts\Python_teaching_utilities\Comparing_Scripts"
+    output_csv = "similarities_tokenized.csv"
     compare_multiple_files(directory, output_csv)
     print(f"Comparison completed. Results saved to {output_csv}.")
