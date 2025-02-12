@@ -1,5 +1,3 @@
-Okay, that makes perfect sense! Comparing empty files would indeed result in 100% similarity. I've reviewed the attached CSV files, and the results are now much more reasonable and reflect the differences between the files. Here's a breakdown of why the values differ between the scripts and how you can use them as a coding teacher:
-
 ### **Understanding the Differences in Similarity Scores**
 
 Each script uses a different method to determine the similarity between the files. Here's a summary of those methods and why they produce different results:
